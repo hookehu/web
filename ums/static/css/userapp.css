@@ -1,0 +1,55 @@
+#index_login
+{
+	position: relative;
+	/*left: 60%;*/
+	width: 30%;
+	top:50%;
+	border: 1px solid green;
+	background-color: #ddf0ed;
+	margin: auto;
+}
+
+.p_center
+{
+	text-align: center;
+}
+
+#nav
+{
+	position: absolute;
+	width: 100%;
+	height:10%;
+	top: 0px;
+	left: 0px;
+	border: 1px solid green;
+	background-color: #c7ffec;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#nav_right
+{
+	position: relative;
+	right: 2em;
+}
+
+#menu
+{
+	position: absolute;
+	width: 20%;
+	height: 100%;
+	top: 10%;
+	border: 1px solid green;
+	background-color: #c7ffec;
+}
+
+#work_div
+{
+	position: relative;
+	/*margin: auto;
+	right: 0px;*/
+	left: 20%;
+	top: 10%;
+	/*width: 80%;*/
+}
+

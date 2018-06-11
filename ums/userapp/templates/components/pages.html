@@ -1,0 +1,7 @@
+{% for page in pages %}
+{% ifequal page.type 1 %}
+<a href="{{page.url}}">{{page.num}}</a>
+{% else %}
+...
+{% endifequal %}
+{% endfor %}

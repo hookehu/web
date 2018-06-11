@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+</style>
+<title>角色子系统管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div>
+			<form action="/userapp/assign_role_sys" method='POST'>
+				角色名：{{role.name}}
+				<br>
+				<input type='hidden' name='rid' value='{{role.id}}'/>
+				{% for sys in syss %}
+					<br>
+					{% ifequal sys.check 1 %}
+						<input type='checkbox' name='sids' value='{{sys.id}}' checked='checked'/>{{sys.name}}
+					{% else %}
+						<input type='checkbox' name='sids' value='{{sys.id}}'/>{{sys.name}}
+					{% endifequal %}
+					<br>
+				{% endfor %}
+				<br>
+				<input type='submit' value="保存"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

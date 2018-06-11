@@ -1,0 +1,30 @@
+{% include "common/head.html" %}
+<script>
+function check_form()
+{
+	var name = document.getElementsByName('username')[0];
+	var pwd = document.getElementsByName('password')[0];
+	name = name.value;
+	pwd = pwd.value;
+	if(!check_name(name))
+	{
+		alert("帐号格式不对");
+		return false;
+	}
+	return true;
+}
+</script>
+<div id="index_login">
+<form class="form_v" action="/userapp/login" method="POST" onsubmit="return check_form()">
+	<p class="p_center"><h1>用户登录</h1></p>
+	<br>
+	<span>帐号:</span><input type='text' name='username' value=''/>
+	<br>
+	<span>密码:</span><input type='password' name='password' value=''/>
+	<br>
+	<input type='submit' value='登录'/>
+</form>
+<br>
+<p class='p_center'><a href="/userapp/register">注册</a></p>
+</div>
+{% include "common/foot.html" %}

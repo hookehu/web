@@ -1,0 +1,10 @@
+<form class="form_v" action="{{form.action}}" method="{{form.method}}">
+		{% for i in form.inputs %}
+		{% ifequal i.type 'hidden' %}
+			<input class='form_v' type="{{i.type}}" name="{{i.name}}" value="{{i.value}}"/>
+		{% else %}
+			{{i.desc}}<input class="form_v" type="{{i.type}}" name="{{i.name}}" value="{{i.value}}"/>
+		{% endifequal %}
+		<br>
+		{% endfor %}
+</form>

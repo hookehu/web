@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+#main
+{
+	position:absolute;
+	width: 50%;
+	text-align: right;
+}
+#back
+{
+	position: relative;
+	right: 10em;
+}
+</style>
+<title>子系统管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div id="main">
+			<form id="sys_add_form" action="/userapp/add_sys" method="POST" onsubmit="return check_form()">
+				<dl>
+					<dt><span>子系统名:</span><input type="text" name="name" value=""/></dt>
+					<dt><span>子系统状态:</span><input type="text" name="state" value=""/></dt>
+					<dt><span>子系统说明:</span><input type="text" name="desc" value=""/></dt>
+					<dt><span>跳转URL:</span><input type="text" name="url" value=""/></dt>
+					<dt><a id="back" href="/userapp/sys_mgr">返回</a><input type="submit" value="新增"/><dt>
+				</dl>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

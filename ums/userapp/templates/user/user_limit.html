@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+#main
+{
+	position:absolute;
+	width: 50%;
+	text-align: right;
+}
+#back
+{
+	position: relative;
+	right: 10em;
+}
+</style>
+<title>权限管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div id="main">
+			<table>
+			{% for limit in limits %}
+			<tr>
+				<td>{{limit.id}}</td>
+				<td>{{limit.limit_name}}</td>
+				<td>{{limit.url}}</td>
+				<td><a href="/userapp/del_user_limit?lid={{limit.id}}">删除</a></td>
+				<td><a href="/userapp/modify_user_limit?lid={{limit.id}}">修改</a></td>
+			</tr>
+			{% endfor %}
+			</table>
+			<a href="/userapp/add_user_limit">添加用户权限</a>
+		</div>
+	</div>
+</body>
+</html>

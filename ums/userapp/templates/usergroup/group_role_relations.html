@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+</script>
+<style>
+</style>
+<title>分组管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div>
+			<form action="/userapp/assign_group_role" method='POST'>
+				组名：{{group.name}}
+				<br>
+				<input type='hidden' name='gid' value='{{group.id}}'/>
+				{% for role in roles %}
+					<br>
+					{% ifequal role.check 1 %}
+						<input type='checkbox' name='rids' value='{{role.id}}' checked='checked'/>{{role.name}}
+					{% else %}
+						<input type='checkbox' name='rids' value='{{role.id}}'/>{{role.name}}
+					{% endifequal %}
+				{% endfor %}
+				<br>
+				<input type='submit' value="保存"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

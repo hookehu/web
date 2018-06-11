@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+#main
+{
+	position:absolute;
+	width: 50%;
+	text-align: right;
+}
+#back
+{
+	position: relative;
+	right: 10em;
+}
+</style>
+<title>用户管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div>
+			<form action="/userapp/assign_user_group" method='POST'>
+				用户名：{{otheruser.name}}
+				<br>
+				<input type='hidden' name='uid' value='{{otheruser.id}}'/>
+				{% for group in groups %}
+					<br>
+					{% ifequal group.check 1 %}
+						<input type='checkbox' name='gids' value='{{group.id}}' checked='checked'/>{{group.name}}
+					{% else %}
+						<input type='checkbox' name='gids' value='{{group.id}}'/>{{group.name}}
+					{% endifequal %}
+				{% endfor %}
+				<br>
+				<input type='submit' value="保存"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

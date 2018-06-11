@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+</script>
+<style>
+</style>
+<title>子系统管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div>
+		<br>
+		<table>
+		{% for sys in syss %}
+		<tr>
+			<td>{{sys.name}}</td>
+			<td>{{sys.state}}</td>
+			<td>{{sys.desc}}</td>
+			<td>{{sys.redirect_url}}</td>
+			<td><a href="/userapp/del_sys?id={{sys.id}}">删除</a></td>
+			<td><a href="/userapp/modify_sys?id={{sys.id}}">修改</a></td>
+			<td><a href="/userapp/enter_sys?id={{sys.id}}">进入</a></td>
+		</tr>
+		{% endfor %}
+		</table>
+		<a href="/userapp/add_sys">添加子系统</a>
+		</div>
+	</div>
+</body>
+</html>

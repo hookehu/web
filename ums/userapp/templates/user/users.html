@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+#main
+{
+	position:absolute;
+	width: 50%;
+	text-align: right;
+}
+#back
+{
+	position: relative;
+	right: 10em;
+}
+</style>
+<title>用户管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div id="main">
+			<table>
+			<tr>
+				<td>用户名</td>
+				<td>电话</td>
+				<td>状态</td>
+				<td>上次登录ip</td>
+			<tr>
+			</tr>
+			{% for user in users %}
+			<tr>
+				<td>{{user.name}}</td>
+				<td>{{user.phone}}</td>
+				<td>{{user.state}}</td>
+				<td>{{user.last_login_ip}}</td>
+				<td><a href="/userapp/modify_user?uid={{user.id}}">修改信息</a></td>
+				<td><a href="/userapp/del_user?uid={{user.id}}">删除</a></td>
+				<td><a href="/userapp/changepwd_user?uid={{user.id}}">修改密码</a></td>
+				<td><a href="/userapp/assign_user_group?uid={{user.id}}">分组</a></td>
+			</tr>
+			{% endfor %}
+			<br>
+			<a href="/userapp/add_user">添加新用户</a>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	var name = document.getElementsByName('username')[0];
+	var phone = document.getElementsByName('phone')[0];
+	var pwd1 = document.getElementsByName('password1')[0];
+	var pwd2 = document.getElementsByName('password2')[0];
+	name = name.value;
+	phone = phone.value;
+	pwd1 = pwd1.value;
+	pwd2 = pwd2.value;
+	if(!check_name(name))
+	{
+		alert("帐号格式错误");
+		return false;
+	}
+	if(!check_phone(phone))
+	{
+		alert("手机号码错误");
+		return false;
+	}
+	console.log(pwd1);
+	console.log(pwd2);
+	if(pwd1 != pwd2)
+	{
+		alert("密码确认错误");
+		return false;
+	}
+	return true;
+}
+</script>
+<style>
+#register_reg
+{
+	position: absolute;
+	width: 50%;
+	left: 30%;
+}
+#reg_items
+{
+	position: absolute;
+	width: 70%;
+	text-align: right;
+}
+#reg_back
+{
+	position: relative;
+	left: 3em;
+
+}
+#reg_title
+{
+	text-align: center;
+}
+
+</style>
+<title>注册</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div id="register_reg">
+			<form id="reg_form" action="/userapp/register" method="POST" onsubmit="return check_form()">
+				<h1 id="reg_title">用户注册</h1>
+				<div id="reg_items">
+					<dl>
+						<dt><span>*</span><span>帐号:</span><input type='text' name='username' value=''/></dt>
+						<dt><span>*</span><span>密码:</span><input type='password' name='password1' value=''/></dt>
+						<dt><span>*</span><span>确认密码:</span><input type='password', name='password2', value=''/></dt>
+						<dt><span>*</span><span>手机:</span><input type='text', name='phone' value=''/></dt>
+						<dt style="position: absolute; left: 70%;"><input type='submit' value='注册'/>
+						<a id="reg_back" href="/userapp/index">返回</a>
+						</dt>
+					</dl>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

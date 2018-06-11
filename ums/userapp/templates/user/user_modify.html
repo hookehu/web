@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/static/css/userapp.css" type="text/css">
+<link rel="stylesheet" href="/static/css/common.css" type="text/css">
+<script type="text/javascript" src="/static/jquery3.2.1.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<script type="text/javascript" src="/static/js/userapp.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+});
+
+function check_form()
+{
+	return true;
+}
+</script>
+<style>
+#main
+{
+	position:absolute;
+	width: 50%;
+	text-align: right;
+}
+#back
+{
+	position: relative;
+	right: 10em;
+}
+</style>
+<title>用户管理</title>
+</head>
+<body>
+	<div class="panel_base">
+		<div id="main">
+			<form id="user_modify_form" action="/userapp/modify_user" method="POST">
+				<dl>
+					<input type="hidden" name="uid" value="{{user.id}}"/>
+					<dt><span>帐号:</span><input type="text" name="username" value="{{user.name}}"/></dt>
+					<dt><span>邮件:</span><input type="text" name="email" value="{{user.email}}"/></dt>
+					<dt><span>手机:</span><input type="text" name="phone" value="{{user.phone}}"/></dt>
+					<dt><a id="back" href="/userapp/user_mgr">返回</a><input type="submit" value="修改用户"></dt>
+				</dl>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

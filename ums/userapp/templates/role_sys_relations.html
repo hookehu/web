@@ -1,0 +1,20 @@
+{% include "head.html" %}
+<div>
+	<form action="/userapp/assign_role_sys" method='POST'>
+		角色名：{{role.name}}
+		<br>
+		<input type='hidden' name='rid' value='{{role.id}}'/>
+		{% for sys in syss %}
+			<br>
+			{% ifequal sys.check 1 %}
+				<input type='checkbox' name='sids' value='{{sys.id}}' checked='checked'/>{{sys.name}}
+			{% else %}
+				<input type='checkbox' name='sids' value='{{sys.id}}'/>{{sys.name}}
+			{% endifequal %}
+			<br>
+		{% endfor %}
+		<br>
+		<input type='submit' value="保存"/>
+	</form>
+</div>
+{% include "foot.html" %}
